@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+{% block content %}
+    <h1>Welcome to BooksS</h1>
+    <h2>{{ title }}</h2>
+
+    <div class="row">
+        {% for book in books %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ book.cover_url }}" class="card-img-top" alt="Image for {{ book.title }}" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{  book.title }}</h5>
+                        <p class="card-text">{{ book.description }}</p>
+                        <a href="{{book.show_url}}" class="btn btn-info">Show</a>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
